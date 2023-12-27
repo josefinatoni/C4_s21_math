@@ -8,10 +8,10 @@ long double s21_floor(double x) {
     x = S21_INF;
   } else if (x == -S21_INF) {
     x = -S21_INF;
-  } else if (x < 0) {
-    x = (int)x - 1.0;
+  } else if (s21_fabs(x - (long long int)x) > 0. && x < 0.) {
+      x = (long long int)x - 1.0;
   } else {
-    int minx = x;
+    long long int minx = x;
     double sravnenie = x - minx;
     if (sravnenie > 0.0) {
       x = minx;
